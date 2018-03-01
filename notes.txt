@@ -1,0 +1,8 @@
+Models:
+    - User
+    - Notes
+    - Contacts
+    - To-dos
+    - Deadlines
+    - Future plans
+    - Documents
