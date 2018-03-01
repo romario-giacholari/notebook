@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Contact::Class);
     }
+
+    public function saveContact($attributes = [])
+    {
+        $this->contacts()->create($attributes);
+    }
 }
