@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 #Contacts
 Route::resource('contacts', 'ContactsController');
+
+#Todos
+Route::resource('todos', 'TodosController');

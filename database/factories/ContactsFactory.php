@@ -7,6 +7,11 @@ $factory->define(App\Contact::class, function (Faker $faker) {
         'user_id' => function() {
             return factory('App\User')->create()->id;
         },
-        'name' => $faker->name,
+        'name' => $faker->username,
+        'email' => $faker->email,
+        'phone_number' => $faker->phoneNumber,
+        'avatar' => $faker->imageUrl,
+        'gender' => 'male',
+
     ];
 });

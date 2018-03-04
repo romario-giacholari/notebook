@@ -32,8 +32,13 @@ class User extends Authenticatable
         return $this->hasMany(Contact::Class);
     }
 
-    public function saveContact($attributes = [])
+    public function saveContact($contact)
     {
-        $this->contacts()->create($attributes);
+        return $this->contacts()->create($contact);
+    }
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
     }
 }
