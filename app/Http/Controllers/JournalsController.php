@@ -21,6 +21,15 @@ class JournalsController extends Controller
 
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'event' => 'required',
+            'learned' => 'required',
+            'well' => 'required',
+            'better' => 'required',
+            'implications' => 'required'
+        ]);
+
         $journal = auth()->user()->journals()->create([
             'event' => $request->event,
             'learned' => $request->learned,

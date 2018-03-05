@@ -40,7 +40,6 @@
               better: this.journal.better,
               implications: this.journal.implications,
               id: this.journal.id,
-              editing: false,
           }
       },
 

@@ -1,12 +1,13 @@
 <template>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-             <button id="journal-fixed-button" class="btn btn-lg btn-success mr-auto" @click="adding=true"><i class="fa fa-plus" aria-hidden="true"></i></button>
+             <button v-if="adding==false" id="journal-fixed-button" class="btn btn-lg btn-success mr-auto" @click="adding=true"><i class="fa fa-plus" aria-hidden="true"></i></button>
+               <button v-else id="journal-fixed-button" class="btn btn-lg btn-danger mr-auto"><i class="fa fa-times" aria-hidden="true" @click="adding=false"></i></button>
              <h1 class="mr-auto"><strong>Journal</strong></h1> 
         </div>
         <hr />
+        <new-journal v-if="adding == true" @created="add"></new-journal>
         <div class="row">
-            <new-journal v-if="adding"></new-journal>
             <div v-for="(journal) in items" :key="journal.id" class="col-md-12">
                 <journal :journal="journal"></journal>
                 <hr />
@@ -27,7 +28,14 @@ import NewJournal from "./NewJournal.vue";
         data() {
             return {
                 items: this.journals,
-                adding:false
+                adding: false
+            }
+        },
+
+        methods: {
+            add(journal) {
+                this.items.unshift(journal);
+                this.adding = false;
             }
         }
     }
