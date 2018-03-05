@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('contact-list', require('./components/Contacts.vue'));
+Vue.component('journals', require('./components/Journals.vue'));
 Vue.component('todos', require('./components/Todos.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 
