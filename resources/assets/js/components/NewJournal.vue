@@ -1,6 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-12">
+            <h2><strong>New entry.</strong></h2>
             <dl class="row  journal-item p-2">
                 <dt class="col-sm-3">Event</dt>
                 <dd class="col-sm-9">
@@ -27,7 +28,7 @@
                     <textarea v-model="newImplications"></textarea>
                 </dd>
                 
-                <button class="btn btn-secodary" @click="add">add</button>
+                <button class="btn btn-primary" @click="add">add</button>
             </dl>
         </div>
     </div>
@@ -72,3 +73,9 @@ export default {
     }
 }
 </script>
+
+<style>
+#new-journal {
+    
+}
+</style>

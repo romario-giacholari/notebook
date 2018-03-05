@@ -1,6 +1,35 @@
 <template>
+<div>
+    <dl v-if="editing" class="row  journal-item p-2">
+        <dt class="col-sm-3">Event</dt>
+        <dd class="col-sm-9">
+            <input type="text" v-model="event">
+        </dd>
 
-    <dl class="row  journal-item p-2">
+        <dt class="col-sm-3">What did I learn?</dt>
+        <dd class="col-sm-9">
+            <textarea v-model="learned"></textarea>
+        </dd>
+
+        <dt class="col-sm-3">What went well?</dt>
+        <dd class="col-sm-9">
+            <textarea v-model="well"></textarea>
+        </dd>
+
+        <dt class="col-sm-3">What could I have done better?</dt>
+        <dd class="col-sm-9"> 
+            <textarea v-model="better"></textarea>
+        </dd>
+
+        <dt class="col-sm-3">Implications</dt>
+        <dd class="col-sm-9"> 
+            <textarea v-model="implications"></textarea>
+        </dd>
+        <button class="btn btn-primary mr-1">update</button>
+        <button class="btn btn-light" @click="cancel">cancel</button>
+    </dl>
+
+    <dl v-else class="row  journal-item p-2">
         <dt class="col-sm-3">Event</dt>
         <dd class="col-sm-9" v-text="event"></dd>
 
@@ -23,8 +52,11 @@
         <dd class="col-sm-9"> 
             <p v-text="implications"></p>
         </dd>
+
+        <button class="btn btn-secodary" @click="editing = true">edit</button>
     </dl>
-    
+
+ </div>   
 </template>
 
 <script>
@@ -40,56 +72,27 @@
               better: this.journal.better,
               implications: this.journal.implications,
               id: this.journal.id,
+              editing: false,
+              newEvent: '',
+              newLearned:'',
+              newWell: '',
+              newBetter: '',
+              newImplications: '',
+
           }
       },
 
-    //   methods: {
-    //       complete() {
-    //           axios.patch('/todos/'+ this.id, {completed: true, body:this.body})
-    //                 .catch(error => {
-    //                         flash(error.response.data.errors.body[0],'danger');
-
-    //                 })
-    //                 .then(({data}) => {
-    //                     this.$emit('completed', this.id)
-                        
-    //                     flash('completed!');
-    //             });
-     
-    //       },
-
-    //       remove() {
-    //           axios.delete('/todos/'+ this.id)
-    //                 .catch(error => {
-    //                     flash(error.response.data.errors.body[0],'danger');
-
-    //                 })
-    //                 .then(({data}) => {
-    //                     this.$emit('deleted', this.id)
-
-    //                     flash('deleted!');
-    //             });
-         
-    //       },
-
-    //       update() {
-    //           axios.patch('/todos/'+ this.id, {completed: this.completed, body: this.body})
-    //                 .catch(error => {
-    //                         flash(error.response.data.errors.body[0],'danger');
-    //                     })
-    //                     .then(({data}) => {
-    //                         this.editing = false;
-
-    //                         flash('updated!');
-    //                     });
-    //       },
-
-    //       cancel() {
-    //           this.editing = false;
-
-    //           this.body = this.todo.body;
-    //       }
-    //   }
+    methods: {
+        cancel() {
+            this.editing = false;
+            this.event = this.journal.event;
+            this.learned = this.journal.learned;
+            this.well = this.journal.well;
+            this.better = this.journal.well;
+            this.implications = this.journal.implications;
+        }
+    }
+   
     }
 </script>
 <style>

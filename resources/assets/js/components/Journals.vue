@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
              <button v-if="adding==false" id="journal-fixed-button" class="btn btn-lg btn-success mr-auto" @click="adding=true"><i class="fa fa-plus" aria-hidden="true"></i></button>
-               <button v-else id="journal-fixed-button" class="btn btn-lg btn-danger mr-auto"><i class="fa fa-times" aria-hidden="true" @click="adding=false"></i></button>
+               <button v-else id="journal-fixed-button" class="btn btn-lg btn-danger mr-auto"  @click="adding=false"><i class="fa fa-times" aria-hidden="true"></i></button>
              <h1 class="mr-auto"><strong>Journal</strong></h1> 
         </div>
         <hr />

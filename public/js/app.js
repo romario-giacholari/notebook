@@ -47845,6 +47845,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47857,9 +47889,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             well: this.journal.well,
             better: this.journal.better,
             implications: this.journal.implications,
-            id: this.journal.id
+            id: this.journal.id,
+            editing: false,
+            newEvent: '',
+            newLearned: '',
+            newWell: '',
+            newBetter: '',
+            newImplications: ''
+
         };
+    },
+
+
+    methods: {
+        cancel: function cancel() {
+            this.editing = false;
+            this.event = this.journal.event;
+            this.learned = this.journal.learned;
+            this.well = this.journal.well;
+            this.better = this.journal.well;
+            this.implications = this.journal.implications;
+        }
     }
+
 });
 
 /***/ }),
@@ -47870,39 +47922,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("dl", { staticClass: "row  journal-item p-2" }, [
-    _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
-    _vm._v(" "),
-    _c("dd", {
-      staticClass: "col-sm-9",
-      domProps: { textContent: _vm._s(_vm.event) }
-    }),
-    _vm._v(" "),
-    _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
-    _vm._v(" "),
-    _c("dd", { staticClass: "col-sm-9" }, [
-      _c("p", { domProps: { textContent: _vm._s(_vm.learned) } })
-    ]),
-    _vm._v(" "),
-    _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
-    _vm._v(" "),
-    _c("dd", { staticClass: "col-sm-9" }, [
-      _c("p", { domProps: { textContent: _vm._s(_vm.well) } })
-    ]),
-    _vm._v(" "),
-    _c("dt", { staticClass: "col-sm-3" }, [
-      _vm._v("What could I have done better?")
-    ]),
-    _vm._v(" "),
-    _c("dd", { staticClass: "col-sm-9" }, [
-      _c("p", { domProps: { textContent: _vm._s(_vm.better) } })
-    ]),
-    _vm._v(" "),
-    _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
-    _vm._v(" "),
-    _c("dd", { staticClass: "col-sm-9" }, [
-      _c("p", { domProps: { textContent: _vm._s(_vm.implications) } })
-    ])
+  return _c("div", [
+    _vm.editing
+      ? _c("dl", { staticClass: "row  journal-item p-2" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.event,
+                  expression: "event"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.event },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.event = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.learned,
+                  expression: "learned"
+                }
+              ],
+              domProps: { value: _vm.learned },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.learned = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.well,
+                  expression: "well"
+                }
+              ],
+              domProps: { value: _vm.well },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.well = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What could I have done better?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.better,
+                  expression: "better"
+                }
+              ],
+              domProps: { value: _vm.better },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.better = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.implications,
+                  expression: "implications"
+                }
+              ],
+              domProps: { value: _vm.implications },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.implications = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-primary mr-1" }, [
+            _vm._v("update")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-light", on: { click: _vm.cancel } },
+            [_vm._v("cancel")]
+          )
+        ])
+      : _c("dl", { staticClass: "row  journal-item p-2" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
+          _vm._v(" "),
+          _c("dd", {
+            staticClass: "col-sm-9",
+            domProps: { textContent: _vm._s(_vm.event) }
+          }),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("p", { domProps: { textContent: _vm._s(_vm.learned) } })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("p", { domProps: { textContent: _vm._s(_vm.well) } })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What could I have done better?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("p", { domProps: { textContent: _vm._s(_vm.better) } })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("p", { domProps: { textContent: _vm._s(_vm.implications) } })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secodary",
+              on: {
+                click: function($event) {
+                  _vm.editing = true
+                }
+              }
+            },
+            [_vm._v("edit")]
+          )
+        ])
   ])
 }
 var staticRenderFns = []
@@ -47920,6 +48122,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(80)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(59)
@@ -47928,7 +48134,7 @@ var __vue_template__ = __webpack_require__(60)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -47968,6 +48174,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -48054,6 +48261,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-md-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("dl", { staticClass: "row  journal-item p-2" }, [
         _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
         _vm._v(" "),
@@ -48180,14 +48389,21 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-secodary", on: { click: _vm.add } },
+          { staticClass: "btn btn-primary", on: { click: _vm.add } },
           [_vm._v("add")]
         )
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", [_c("strong", [_vm._v("New entry.")])])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -48236,17 +48452,17 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-lg btn-danger mr-auto",
-                  attrs: { id: "journal-fixed-button" }
+                  attrs: { id: "journal-fixed-button" },
+                  on: {
+                    click: function($event) {
+                      _vm.adding = false
+                    }
+                  }
                 },
                 [
                   _c("i", {
                     staticClass: "fa fa-times",
-                    attrs: { "aria-hidden": "true" },
-                    on: {
-                      click: function($event) {
-                        _vm.adding = false
-                      }
-                    }
+                    attrs: { "aria-hidden": "true" }
                   })
                 ]
               ),
@@ -49064,6 +49280,49 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(81);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("67b8a429", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6e8abea4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewJournal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6e8abea4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewJournal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#new-journal {\n}\r\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
