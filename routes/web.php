@@ -24,3 +24,6 @@ Route::resource('contacts', 'ContactsController');
 
 #Todos
 Route::resource('todos', 'TodosController');
+
+#Journals
+Route::resource('journals', 'JournalsController');

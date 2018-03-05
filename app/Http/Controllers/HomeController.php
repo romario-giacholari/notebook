@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Todo;
+use App\Contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $todos = Todo::where([
+            ['user_id' ,auth()->user()->id],
+            ['completed', false]
+        ])->count();
+
+        $contacts = Contact::where('user_id', auth()->user()->id)->count();
+
+        return view('home', [
+            'todos' => $todos,
+            'contacts' => $contacts
+        ]);
     }
 }

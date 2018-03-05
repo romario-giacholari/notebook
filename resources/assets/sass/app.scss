@@ -34,9 +34,44 @@
 
 .fixed-button {
   position: fixed; 
-  bottom: 25px;
-  right: 5px;
+  top: 75px;
+  left: 10%;
   z-index: 100; 
   box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
   border-radius:50%;
+}
+
+textarea:focus,
+input[type="option"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  -webkit-box-shadow: none;
+  outline: -webkit-focus-ring-color auto 0px;
+  outline: none;
+}
+
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.action-card:hover {
+  opacity:0.7;
+}
+
+.action-link:hover {
+  text-decoration:none;
 }

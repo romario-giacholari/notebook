@@ -37,7 +37,7 @@
             hide() {
                 setTimeout(() => {
                     this.show = false;
-                }, 3000);
+                }, 4000);
             }
         }
     };
@@ -48,5 +48,6 @@
         position: fixed;
         right: 5px;
         top: 65px;
+        z-index: 100;
     }
 </style>

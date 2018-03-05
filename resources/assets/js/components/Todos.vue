@@ -39,6 +39,9 @@ import AddTodo from "./AddTodo.vue";
         },
 
         remove(index) {
+             var audio = new Audio('trash.mp3');
+             audio.play();
+
             this.items.splice(index, 1);
         }
     }

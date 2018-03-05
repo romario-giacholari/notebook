@@ -33,6 +33,7 @@
                                 Links
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/home">home</a>
                                 <a class="dropdown-item" href="{{ route('contacts.index') }}">contacts</a>
                                 <a class="dropdown-item" href="{{ route('todos.index') }}">todos</a>
                                 <a class="dropdown-item" href="#">documents</a>

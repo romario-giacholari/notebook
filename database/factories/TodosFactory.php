@@ -8,6 +8,6 @@ $factory->define(App\Todo::class, function (Faker $faker) {
             return factory('App\User')->create()->id;
         },
         'body' => $faker->text,
-        'completed' => false
+        'completed' => false,
     ];
 });

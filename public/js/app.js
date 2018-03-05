@@ -47328,6 +47328,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.items.splice(index, 1);
         },
         remove: function remove(index) {
+            var audio = new Audio('trash.mp3');
+            audio.play();
+
             this.items.splice(index, 1);
         }
     }
@@ -47406,6 +47409,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47415,7 +47419,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             body: this.todo.body,
             id: this.todo.id,
-            completed: this.todo.completed,
+            completed: false,
             editing: false
         };
     },
@@ -47423,14 +47427,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         complete: function complete() {
-            axios.patch('/todos/' + this.id, { completed: true });
-            flash('completed!');
-            this.$emit('completed', this.id);
+            var _this = this;
+
+            axios.patch('/todos/' + this.id, { completed: true, body: this.body }).catch(function (error) {
+                flash(error.response.data.errors.body[0], 'danger');
+            }).then(function (_ref) {
+                var data = _ref.data;
+
+                _this.$emit('completed', _this.id);
+
+                flash('completed!');
+            });
         },
         remove: function remove() {
-            axios.delete('/todos/' + this.id);
-            flash('deleted!');
-            this.$emit('deleted', this.id);
+            var _this2 = this;
+
+            axios.delete('/todos/' + this.id).catch(function (error) {
+                flash(error.response.data.errors.body[0], 'danger');
+            }).then(function (_ref2) {
+                var data = _ref2.data;
+
+                _this2.$emit('deleted', _this2.id);
+
+                flash('deleted!');
+            });
+        },
+        update: function update() {
+            var _this3 = this;
+
+            axios.patch('/todos/' + this.id, { completed: this.completed, body: this.body }).catch(function (error) {
+                flash(error.response.data.errors.body[0], 'danger');
+            }).then(function (_ref3) {
+                var data = _ref3.data;
+
+                _this3.editing = false;
+
+                flash('updated!');
+            });
+        },
+        cancel: function cancel() {
+            this.editing = false;
+
+            this.body = this.todo.body;
         }
     }
 });
@@ -47462,8 +47500,8 @@ var render = function() {
                     expression: "body"
                   }
                 ],
-                staticClass: "form-control",
-                attrs: { type: "text", "aria-describedby": "basic-addon2" },
+                staticClass: "form-control mr-auto",
+                attrs: { type: "text" },
                 domProps: { value: _vm.body },
                 on: {
                   keyup: function($event) {
@@ -47473,7 +47511,7 @@ var render = function() {
                     ) {
                       return null
                     }
-                    _vm.addTodo($event)
+                    _vm.update($event)
                   },
                   input: function($event) {
                     if ($event.target.composing) {
@@ -47485,13 +47523,21 @@ var render = function() {
               }),
               _vm._v(" "),
               _c(
-                "a",
+                "button",
                 {
-                  staticClass: "btn btn-success",
-                  attrs: { href: "#" },
+                  staticClass: "btn btn-success ml-1",
                   on: { click: _vm.update }
                 },
                 [_vm._v("update")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary ml-1",
+                  on: { click: _vm.cancel }
+                },
+                [_vm._v("cancel")]
               )
             ]
           )
@@ -47505,15 +47551,19 @@ var render = function() {
             },
             [
               _c("div", {
-                staticClass: "mr-auto",
-                domProps: { textContent: _vm._s(_vm.body) }
+                staticClass: "mr-auto font-weight-bold",
+                domProps: { textContent: _vm._s(_vm.body) },
+                on: {
+                  click: function($event) {
+                    _vm.editing = true
+                  }
+                }
               }),
               _vm._v(" "),
               _c(
-                "a",
+                "button",
                 {
                   staticClass: "btn btn-outline-success",
-                  attrs: { href: "#" },
                   on: { click: _vm.complete }
                 },
                 [
@@ -47525,10 +47575,9 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "a",
+                "button",
                 {
                   staticClass: "btn btn-outline-danger ml-1",
-                  attrs: { href: "#" },
                   on: { click: _vm.remove }
                 },
                 [
@@ -47853,7 +47902,7 @@ exports = module.exports = __webpack_require__(58)(false);
 
 
 // module
-exports.push([module.i, "\n.alert-flash {\n    position: fixed;\n    right: 5px;\n    top: 65px;\n}\n", ""]);
+exports.push([module.i, "\n.alert-flash {\n    position: fixed;\n    right: 5px;\n    top: 65px;\n    z-index: 100;\n}\n", ""]);
 
 // exports
 
@@ -48251,7 +48300,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             setTimeout(function () {
                 _this2.show = false;
-            }, 3000);
+            }, 4000);
         }
     }
 });

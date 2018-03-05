@@ -12,6 +12,7 @@ class TodosController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +53,7 @@ class TodosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'body' => 'required',
+            'body' => 'required|max:100',
         ]);
 
         $todo = auth()->user()->todos()->create($request->all());
@@ -91,7 +92,15 @@ class TodosController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        $todo = auth()->user()->todos()->update($request->all());
+
+        $this->authorize('update', $todo);
+
+        $this->validate($request ,[
+            'completed' => 'required',
+            'body' => 'required|max:100'
+        ]);
+
+       $todo->update($request->all());
 
 }
 
@@ -103,6 +112,8 @@ class TodosController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        $this->authorize('update', $todo);
+
         $todo->delete();
     }
 }
