@@ -25,7 +25,7 @@
         <dd class="col-sm-9"> 
             <textarea v-model="implications"></textarea>
         </dd>
-        <button class="btn btn-primary mr-1">update</button>
+        <button class="btn btn-primary mr-1" @click="update">update</button>
         <button class="btn btn-light" @click="cancel">cancel</button>
     </dl>
 
@@ -54,6 +54,7 @@
         </dd>
 
         <button class="btn btn-secodary" @click="editing = true">edit</button>
+        <button class="btn btn-danger ml-1" @click="remove">delete</button>
     </dl>
 
  </div>   
@@ -73,24 +74,50 @@
               implications: this.journal.implications,
               id: this.journal.id,
               editing: false,
-              newEvent: '',
-              newLearned:'',
-              newWell: '',
-              newBetter: '',
-              newImplications: '',
-
           }
       },
 
     methods: {
         cancel() {
             this.editing = false;
+            
             this.event = this.journal.event;
             this.learned = this.journal.learned;
             this.well = this.journal.well;
-            this.better = this.journal.well;
+            this.better = this.journal.better;
             this.implications = this.journal.implications;
-        }
+        },
+
+        remove() {
+            axios.delete('/journals/'+ this.id)
+                .catch(error => {
+                    flash(error.response.data.errors.body[0],'danger');
+
+                })
+                .then(({data}) => {
+                    this.$emit('deleted', this.id)
+
+                    flash('deleted!');
+            });
+        },
+
+          update() {
+              axios.patch('/journals/'+ this.id, {
+                  event: this.event, 
+                  learned: this.learned,
+                  well: this.well,
+                  better: this.better,
+                  implications: this.implications
+                  })
+                    .catch(error => {
+                            flash(error.response.data.errors.body[0],'danger');
+                        })
+                        .then(({data}) => {
+                            this.editing = false;
+                            flash('updated!');
+                        });
+          },
+
     }
    
     }

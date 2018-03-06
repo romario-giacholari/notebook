@@ -8,8 +8,8 @@
         <hr />
         <new-journal v-if="adding == true" @created="add"></new-journal>
         <div class="row">
-            <div v-for="(journal) in items" :key="journal.id" class="col-md-12">
-                <journal :journal="journal"></journal>
+            <div v-for="(journal, index) in items" :key="journal.id" class="col-md-12">
+                <journal :journal="journal" @deleted="remove(index)"></journal>
                 <hr />
             </div>
         </div>
@@ -36,6 +36,10 @@ import NewJournal from "./NewJournal.vue";
             add(journal) {
                 this.items.unshift(journal);
                 this.adding = false;
+            },
+
+            remove(index) {
+                this.items.splice(index, 1);
             }
         }
     }
