@@ -27,7 +27,9 @@ class JournalTest extends TestCase
     {
         $this->actingAs($this->user);
 
-        $notMyJournal = create(Journal::class);
+        $notMyJournal = create(Journal::class, [
+            'event' => 'Presentation',
+        ]);
 
         $journal = make(Journal::class, [
             'event' => 'Attended first ever seminar',
