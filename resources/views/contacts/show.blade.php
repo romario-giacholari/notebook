@@ -2,11 +2,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <!-- <div class="col-md-2">
+            <div class="col-md-2">
                 <img src="{{ asset($contact->avatar) }}" class="contact-avatar" />
-            </div> -->
-            <div class="col-md-12">
-            <img src="{{ asset($contact->avatar) }}" class="contact-avatar" />
+            </div>
+            <div class="col-md-10">
                 <div><b> {{ $contact->name }} </b></div>
                 <small class="form-text text-muted"> {{ $contact->gender }}</small>
                 <div> <i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $contact->email }}</div>

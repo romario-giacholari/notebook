@@ -1,11 +1,9 @@
 <template>
     <div>
         <div class="d-flex justify-content-between align-items-center">
-            <button v-if="adding == false" class="btn btn-lg btn-success add-button mr-auto" @click="adding = true"><i class="fa fa-plus" aria-hidden="true"></i></button>
-            <button v-else class="btn btn-lg btn-danger add-button mr-auto"  @click="adding=false"><i class="fa fa-times" aria-hidden="true"></i></button>
-            <div class="mr-auto"><strong>conversations</strong> <i class="fa fa-comment-o" aria-hidden="true"></i></div> 
+            <button v-if="adding == false" class="btn  btn-success add-button mr-auto mb-2" @click="adding = true"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+            <button v-else class="btn btn-lg btn-danger add-button mr-auto mb-2"  @click="adding=false"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
-        <hr />
         <new-conversation v-if="adding == true" :contact="this.contact" @created="add"></new-conversation>
         <div v-for="(conversation, index) in items" :key="conversation.id">
             <conversation 

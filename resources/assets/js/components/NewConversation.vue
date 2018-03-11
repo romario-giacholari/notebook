@@ -17,7 +17,7 @@
                         </div>
                     </dd>
 
-                    <button class="btn btn-primary" @click="add">Add</button>
+                    <button class="btn btn-primary" @click="add">Log</button>
                 </dl>
         </div>
     </div>
@@ -56,3 +56,9 @@ export default {
     }
 }
 </script>
+<style>
+.conversation-item {
+    background-color: #f4f8fc;
+    font-family:Comic Sans MS;
+}
+</style>

@@ -49470,8 +49470,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -49529,7 +49527,7 @@ var render = function() {
             ? _c(
                 "button",
                 {
-                  staticClass: "btn btn-lg btn-success add-button mr-auto",
+                  staticClass: "btn  btn-success add-button mr-auto mb-2",
                   on: {
                     click: function($event) {
                       _vm.adding = true
@@ -49538,7 +49536,7 @@ var render = function() {
                 },
                 [
                   _c("i", {
-                    staticClass: "fa fa-plus",
+                    staticClass: "fa fa-comment-o",
                     attrs: { "aria-hidden": "true" }
                   })
                 ]
@@ -49546,7 +49544,7 @@ var render = function() {
             : _c(
                 "button",
                 {
-                  staticClass: "btn btn-lg btn-danger add-button mr-auto",
+                  staticClass: "btn btn-lg btn-danger add-button mr-auto mb-2",
                   on: {
                     click: function($event) {
                       _vm.adding = false
@@ -49559,13 +49557,9 @@ var render = function() {
                     attrs: { "aria-hidden": "true" }
                   })
                 ]
-              ),
-          _vm._v(" "),
-          _vm._m(0)
+              )
         ]
       ),
-      _vm._v(" "),
-      _c("hr"),
       _vm._v(" "),
       _vm.adding == true
         ? _c("new-conversation", {
@@ -49596,21 +49590,7 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mr-auto" }, [
-      _c("strong", [_vm._v("conversations")]),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-comment-o",
-        attrs: { "aria-hidden": "true" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -49893,6 +49873,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(95)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(89)
@@ -49901,7 +49885,7 @@ var __vue_template__ = __webpack_require__(90)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -50076,7 +50060,7 @@ var render = function() {
         _c(
           "button",
           { staticClass: "btn btn-primary", on: { click: _vm.add } },
-          [_vm._v("Add")]
+          [_vm._v("Log")]
         )
       ])
     ])
@@ -50129,6 +50113,46 @@ if(false) {
 
 /***/ }),
 /* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.conversation-item {\r\n    background-color: #f4f8fc;\r\n    font-family:Comic Sans MS;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(96);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("6c9fe96a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5fdef2c8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewConversation.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5fdef2c8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewConversation.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
