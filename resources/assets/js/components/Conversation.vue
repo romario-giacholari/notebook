@@ -11,8 +11,8 @@
                 <textarea v-model="body"></textarea>
             </dd>
 
-            <button class="btn btn-primary mr-1" @click="update">update</button>
-            <button class="btn btn-secondary" @click="cancel">cancel</button>
+            <button class="btn btn-primary btn-sm mr-1" @click="update">update</button>
+            <button class="btn btn-secondary btn-sm" @click="cancel">cancel</button>
         </dl>
 
         <dl v-else class="row conversation-item p-2">
@@ -24,8 +24,8 @@
                 <p v-text="body"></p>
             </dd>
 
-            <button class="btn btn-secodary" @click="editing = true">edit</button>
-            <button class="btn btn-danger ml-1" @click="remove">delete</button>
+            <button class="btn btn-secodary btn-sm" @click="editing = true">edit</button>
+            <button class="btn btn-danger btn-sm ml-1" @click="remove">delete</button>
         </dl>
 
     </div>

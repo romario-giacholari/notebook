@@ -75,7 +75,8 @@ export default {
 </script>
 
 <style>
-#new-journal {
-    
+.journal-item {
+    background-color: #FFFF66;
+    font-family:Comic Sans MS;
 }
 </style>
