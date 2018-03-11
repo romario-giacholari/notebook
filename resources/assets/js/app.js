@@ -15,8 +15,16 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('conversations', require('./components/Conversations.vue'));
+Vue.component('contact-list', require('./components/Contacts.vue'));
+Vue.component('journals', require('./components/Journals.vue'));
+Vue.component('todos', require('./components/Todos.vue'));
+Vue.component('flash', require('./components/Flash.vue'));
 
 const app = new Vue({
     el: '#app'
+});
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
 });

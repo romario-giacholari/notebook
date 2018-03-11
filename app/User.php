@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::Class);
+    }
+
+    public function saveContact($contact)
+    {
+        return $this->contacts()->create($contact);
+    }
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
+
+    public function journals()
+    {
+        return $this->hasMany(Journal::class);
+    }
 }
