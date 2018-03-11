@@ -32,13 +32,9 @@
   flex:1;
 }
 
-.fixed-button {
-  position: fixed; 
-  top: 75px;
-  left: 10%;
-  z-index: 100; 
-  box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
+.add-button {
   border-radius:50%;
+  box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
 }
 
 textarea:focus,

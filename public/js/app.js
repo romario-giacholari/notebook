@@ -25044,6 +25044,7 @@ window.Vue = __webpack_require__(7);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('conversations', __webpack_require__(82));
 Vue.component('contact-list', __webpack_require__(42));
 Vue.component('journals', __webpack_require__(48));
 Vue.component('todos', __webpack_require__(64));
@@ -47718,6 +47719,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         remove: function remove(index) {
             this.items.splice(index, 1);
+        },
+        update: function update() {
+            var _this = this;
+
+            axios.get('/journals').then(function (_ref) {
+                var data = _ref.data;
+
+                _this.items = data;
+            });
         }
     }
 });
@@ -47937,6 +47947,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref2.data;
 
                 _this2.editing = false;
+
+                _this2.$emit('updated');
+
                 flash('updated!');
             });
         }
@@ -48568,7 +48581,8 @@ var render = function() {
                 on: {
                   deleted: function($event) {
                     _vm.remove(index)
-                  }
+                  },
+                  updated: _vm.update
                 }
               }),
               _vm._v(" "),
@@ -48702,6 +48716,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             audio.play();
 
             this.items.splice(index, 1);
+        },
+        update: function update() {
+            var _this = this;
+
+            axios.get('/todos').then(function (_ref) {
+                var data = _ref.data;
+
+                _this.items = data;
+            });
         }
     }
 
@@ -48831,6 +48854,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref3.data;
 
                 _this3.editing = false;
+
+                _this3.$emit('updated');
 
                 flash('updated!');
             });
@@ -49158,7 +49183,8 @@ var render = function() {
                     },
                     deleted: function($event) {
                       _vm.remove(index)
-                    }
+                    },
+                    updated: _vm.update
                   }
                 }),
                 _vm._v(" "),
@@ -49365,6 +49391,755 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Conversations.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-023e432e", Component.options)
+  } else {
+    hotAPI.reload("data-v-023e432e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Conversation_vue__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Conversation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Conversation_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NewConversation_vue__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__NewConversation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__NewConversation_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    components: { Conversation: __WEBPACK_IMPORTED_MODULE_0__Conversation_vue___default.a, NewConversation: __WEBPACK_IMPORTED_MODULE_1__NewConversation_vue___default.a },
+
+    props: ['contact'],
+
+    data: function data() {
+        return {
+            items: this.contact.conversations,
+            adding: false
+        };
+    },
+
+
+    methods: {
+        add: function add(conversation) {
+            this.items.unshift(conversation);
+            this.adding = false;
+        },
+        remove: function remove(index) {
+            this.items.splice(index, 1);
+        },
+        update: function update() {
+            var _this = this;
+
+            axios.get('/contacts/' + this.contact.id + '/conversations').then(function (_ref) {
+                var data = _ref.data;
+
+                _this.items = data;
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "d-flex justify-content-between align-items-center" },
+        [
+          _vm.adding == false
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-success add-button mr-auto",
+                  on: {
+                    click: function($event) {
+                      _vm.adding = true
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-plus",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            : _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-danger add-button mr-auto",
+                  on: {
+                    click: function($event) {
+                      _vm.adding = false
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-times",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _vm.adding == true
+        ? _c("new-conversation", {
+            attrs: { contact: this.contact },
+            on: { created: _vm.add }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.items, function(conversation, index) {
+        return _c(
+          "div",
+          { key: conversation.id },
+          [
+            _c("conversation", {
+              attrs: { conversation: conversation },
+              on: {
+                updated: _vm.update,
+                deleted: function($event) {
+                  _vm.remove(index)
+                }
+              }
+            })
+          ],
+          1
+        )
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mr-auto" }, [
+      _c("strong", [_vm._v("conversations")]),
+      _vm._v(" "),
+      _c("i", {
+        staticClass: "fa fa-comment-o",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-023e432e", module.exports)
+  }
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(93)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(86)
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Conversation.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4a2b01fa", Component.options)
+  } else {
+    hotAPI.reload("data-v-4a2b01fa", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    props: ['conversation'],
+
+    data: function data() {
+        return {
+            topic: this.conversation.topic,
+            body: this.conversation.body,
+            id: this.conversation.id,
+            editing: false
+        };
+    },
+
+
+    methods: {
+        cancel: function cancel() {
+            this.editing = false;
+
+            this.topic = this.conversation.topic;
+            this.body = this.conversation.body;
+        },
+        remove: function remove() {
+            var _this = this;
+
+            axios.delete('/contacts/' + this.conversation.contact_id + '/conversations/' + this.id).catch(function (error) {
+                flash(error.response.data.errors.body[0], 'danger');
+            }).then(function (_ref) {
+                var data = _ref.data;
+
+                _this.$emit('deleted', _this.id);
+
+                flash('deleted!');
+            });
+        },
+        update: function update() {
+            var _this2 = this;
+
+            axios.patch('/contacts/' + this.conversation.contact_id + '/conversations/' + this.id, {
+                topic: this.topic,
+                body: this.body
+            }).catch(function (error) {
+                flash(error.response.data.errors.body[0], 'danger');
+            }).then(function (_ref2) {
+                var data = _ref2.data;
+
+                _this2.editing = false;
+
+                _this2.$emit('updated');
+
+                flash('updated!');
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "mt-2" }, [
+    _vm.editing
+      ? _c("dl", { staticClass: "row conversation-item p-2" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.topic,
+                  expression: "topic"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.topic },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.topic = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What did you talk about?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.body,
+                  expression: "body"
+                }
+              ],
+              domProps: { value: _vm.body },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.body = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary mr-1", on: { click: _vm.update } },
+            [_vm._v("update")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-secondary", on: { click: _vm.cancel } },
+            [_vm._v("cancel")]
+          )
+        ])
+      : _c("dl", { staticClass: "row conversation-item p-2" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+          _vm._v(" "),
+          _c("dd", {
+            staticClass: "col-sm-9",
+            domProps: { textContent: _vm._s(_vm.topic) }
+          }),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What did you talk about?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("p", { domProps: { textContent: _vm._s(_vm.body) } })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secodary",
+              on: {
+                click: function($event) {
+                  _vm.editing = true
+                }
+              }
+            },
+            [_vm._v("edit")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-danger ml-1", on: { click: _vm.remove } },
+            [_vm._v("delete")]
+          )
+        ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4a2b01fa", module.exports)
+  }
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(89)
+/* template */
+var __vue_template__ = __webpack_require__(90)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\NewConversation.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5fdef2c8", Component.options)
+  } else {
+    hotAPI.reload("data-v-5fdef2c8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    props: ['contact'],
+
+    data: function data() {
+        return {
+            newTopic: '',
+            newBody: ''
+        };
+    },
+
+
+    methods: {
+        add: function add() {
+            var _this = this;
+
+            axios.post('/contacts/' + this.contact.id + '/conversations', {
+                topic: this.newTopic,
+                body: this.newBody
+
+            }).catch(function (error) {
+                flash(error.response.data.message, 'danger');
+            }).then(function (_ref) {
+                var data = _ref.data;
+
+
+                _this.newTopic = '';
+                _this.newBody = '';
+                _this.$emit('created', data);
+                flash('added.');
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("dl", { staticClass: "row conversation-item p-2" }, [
+        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+        _vm._v(" "),
+        _c("dd", { staticClass: "col-sm-9" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newTopic,
+                  expression: "newTopic"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "topic" },
+              domProps: { value: _vm.newTopic },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newTopic = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("dt", { staticClass: "col-sm-3" }, [
+          _vm._v("What did you talk about?")
+        ]),
+        _vm._v(" "),
+        _c("dd", { staticClass: "col-sm-9" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newBody,
+                  expression: "newBody"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { rows: "5", placeholder: "What did you talk about?" },
+              domProps: { value: _vm.newBody },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newBody = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", on: { click: _vm.add } },
+          [_vm._v("Add")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", [_c("strong", [_vm._v("Log conversation.")])])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5fdef2c8", module.exports)
+  }
+}
+
+/***/ }),
+/* 91 */,
+/* 92 */,
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(94);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("ad1e50e8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4a2b01fa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Conversation.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4a2b01fa\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Conversation.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.conversation-item {\r\n    background-color: #f4f8fc;\r\n    font-family:Comic Sans MS;\n}\r\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

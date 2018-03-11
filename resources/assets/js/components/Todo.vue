@@ -69,6 +69,8 @@
                         .then(({data}) => {
                             this.editing = false;
 
+                            this.$emit('updated');
+                            
                             flash('updated!');
                         });
           },

@@ -15,6 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('conversations', require('./components/Conversations.vue'));
 Vue.component('contact-list', require('./components/Contacts.vue'));
 Vue.component('journals', require('./components/Journals.vue'));
 Vue.component('todos', require('./components/Todos.vue'));

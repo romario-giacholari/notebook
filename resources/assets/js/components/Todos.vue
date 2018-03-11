@@ -3,7 +3,7 @@
     <add-todo @created="add"></add-todo>
     <div class="row">
         <div v-for="(todo, index) in items" :key="todo.id" class="col-md-12">
-            <todo :todo="todo" @completed="complete(index)" @deleted="remove(index)"></todo>
+            <todo :todo="todo" @completed="complete(index)" @deleted="remove(index)" @updated="update"></todo>
             <hr />
         </div>
         <hr />
@@ -43,6 +43,13 @@ import AddTodo from "./AddTodo.vue";
              audio.play();
 
             this.items.splice(index, 1);
+        },
+
+        update() {
+            axios.get('/todos')
+                 .then(({data}) => {
+                     this.items = data;
+                 });
         }
     }
 

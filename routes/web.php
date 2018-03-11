@@ -27,3 +27,6 @@ Route::resource('todos', 'TodosController');
 
 #Journals
 Route::resource('journals', 'JournalsController');
+
+#ContactConversation
+Route::resource('contacts.conversations', 'ContactConversationsController');

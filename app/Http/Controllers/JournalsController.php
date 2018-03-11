@@ -16,6 +16,10 @@ class JournalsController extends Controller
     {
         $journals = Journal::where('user_id', auth()->user()->id)->latest()->get();
 
+        if(request()->expectsJson()) {
+            return $journals;
+        }
+
         return view('journals.index', compact('journals'));
     }
 
@@ -52,6 +56,8 @@ class JournalsController extends Controller
             'better' => $request->better,
             'implications' => $request->implications
             ]);
+
+        return $journal;
     }
 
     public function destroy(Journal $journal)

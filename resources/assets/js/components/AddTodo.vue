@@ -9,7 +9,6 @@
 
 <script>
     export default {
-
     data() {
         return { 
             newTodo: ''

@@ -9,7 +9,7 @@
         <new-journal v-if="adding == true" @created="add"></new-journal>
         <div class="row">
             <div v-for="(journal, index) in items" :key="journal.id" class="col-md-12">
-                <journal :journal="journal" @deleted="remove(index)"></journal>
+                <journal :journal="journal" @deleted="remove(index)" @updated="update"></journal>
                 <hr />
             </div>
         </div>
@@ -40,6 +40,13 @@ import NewJournal from "./NewJournal.vue";
 
             remove(index) {
                 this.items.splice(index, 1);
+            },
+
+            update() {
+                axios.get('/journals')
+                     .then(({data}) => {
+                         this.items = data;
+                     });
             }
         }
     }

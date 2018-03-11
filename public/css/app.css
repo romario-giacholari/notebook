@@ -10029,14 +10029,10 @@ a.text-dark:focus {
           flex: 1;
 }
 
-.fixed-button {
-  position: fixed;
-  top: 75px;
-  left: 10%;
-  z-index: 100;
+.add-button {
+  border-radius: 50%;
   -webkit-box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
           box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
 }
 
 textarea:focus,
