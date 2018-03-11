@@ -25,16 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $todos = Todo::where([
-        //     ['user_id' ,auth()->user()->id],
-        //     ['completed', false]
-        // ])->count();
+        $todos = Todo::where([
+            ['user_id' ,auth()->user()->id],
+            ['completed', false]
+        ])->count();
 
-        // $contacts = Contact::where('user_id', auth()->user()->id)->count();
+        $contacts = Contact::where('user_id', auth()->user()->id)->count();
 
-        // return view('home', [
-        //     'todos' => $todos,
-        //     'contacts' => $contacts
-        // ]);
+        return view('home', [
+            'todos' => $todos,
+            'contacts' => $contacts
+        ]);
     }
 }
