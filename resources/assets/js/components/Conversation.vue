@@ -1,32 +1,36 @@
 <template>
     <div class="mt-2">
-          <dl v-if="editing" class="row conversation-item p-2">
-            <dt class="col-sm-3">Topic</dt>
-            <dd class="col-sm-9">
-                <input type="text" v-model="topic">
-            </dd>
+        <div v-if="editing" class="conversation-item p-2">
+            <dl class="row">
+                <dt class="col-sm-3">Topic</dt>
+                <dd class="col-sm-9">
+                    <input type="text" v-model="topic">
+                </dd>
 
-            <dt class="col-sm-3">What did you talk about?</dt>
-            <dd class="col-sm-9"> 
-                <textarea v-model="body"></textarea>
-            </dd>
+                <dt class="col-sm-3">What did you talk about?</dt>
+                <dd class="col-sm-9"> 
+                    <textarea v-model="body"></textarea>
+                </dd>
 
-            <button class="btn btn-primary btn-sm mr-1" @click="update">update</button>
-            <button class="btn btn-secondary btn-sm" @click="cancel">cancel</button>
-        </dl>
+                <button class="btn btn-primary btn-sm ml-3" @click="update">update</button>
+                <button class="btn btn-secondary btn-sm ml-1" @click="cancel">cancel</button>
+            </dl>
+        </div>
 
-        <dl v-else class="row conversation-item p-2">
-            <dt class="col-sm-3">Topic</dt>
-            <dd class="col-sm-9" v-text="topic"></dd>
+        <div v-else class="conversation-item p-2">
+            <dl class="row">
+                <dt class="col-sm-3">Topic</dt>
+                <dd class="col-sm-9" v-text="topic"></dd>
 
-            <dt class="col-sm-3">What did you talk about?</dt>
-            <dd class="col-sm-9">
-                <p v-text="body"></p>
-            </dd>
+                <dt class="col-sm-3">What did you talk about?</dt>
+                <dd class="col-sm-9">
+                    <p v-text="body"></p>
+                </dd>
 
-            <button class="btn btn-secodary btn-sm" @click="editing = true">edit</button>
-            <button class="btn btn-danger btn-sm ml-1" @click="remove">delete</button>
-        </dl>
+                <button class="btn btn-secodary btn-sm ml-3" @click="editing = true">edit</button>
+                <button class="btn btn-danger btn-sm ml-1" @click="remove">delete</button>
+            </dl>
+        </div>
 
     </div>
 </template>

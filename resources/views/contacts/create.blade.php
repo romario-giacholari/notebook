@@ -9,7 +9,7 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never any email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share any email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="name" required>

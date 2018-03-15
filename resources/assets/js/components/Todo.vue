@@ -36,6 +36,7 @@
           complete() {
               axios.patch('/todos/'+ this.id, {completed: true, body:this.body})
                     .catch(error => {
+                        console.log(error);
                             flash(error.response.data.errors.body[0],'danger');
 
                     })

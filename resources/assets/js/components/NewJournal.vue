@@ -2,34 +2,36 @@
     <div class="row">
         <div class="col-md-12">
             <h2><strong>New entry.</strong></h2>
-            <dl class="row  journal-item p-2">
-                <dt class="col-sm-3">Event</dt>
-                <dd class="col-sm-9">
-                    <input type="text" v-model="newEvent">
-                </dd>
+            <div class="journal-item p-2 mb-3">
+                <dl class="row">
+                    <dt class="col-sm-3">Event</dt>
+                    <dd class="col-sm-9">
+                        <input type="text" v-model="newEvent">
+                    </dd>
 
-                <dt class="col-sm-3">What did I learn?</dt>
-                <dd class="col-sm-9">
-                    <textarea v-model="newLearned"></textarea>
-                </dd>
+                    <dt class="col-sm-3">What did I learn?</dt>
+                    <dd class="col-sm-9">
+                        <textarea v-model="newLearned"></textarea>
+                    </dd>
 
-                <dt class="col-sm-3">What went well?</dt>
-                <dd class="col-sm-9">
-                    <textarea v-model="newWell"></textarea>
-                </dd>
+                    <dt class="col-sm-3">What went well?</dt>
+                    <dd class="col-sm-9">
+                        <textarea v-model="newWell"></textarea>
+                    </dd>
 
-                <dt class="col-sm-3">What could I have done better?</dt>
-                <dd class="col-sm-9"> 
-                    <textarea v-model="newBetter"></textarea>
-                </dd>
+                    <dt class="col-sm-3">What could I have done better?</dt>
+                    <dd class="col-sm-9"> 
+                        <textarea v-model="newBetter"></textarea>
+                    </dd>
 
-                <dt class="col-sm-3">Implications</dt>
-                <dd class="col-sm-9"> 
-                    <textarea v-model="newImplications"></textarea>
-                </dd>
-                
-                <button class="btn btn-primary" @click="add">add</button>
-            </dl>
+                    <dt class="col-sm-3">Implications</dt>
+                    <dd class="col-sm-9"> 
+                        <textarea v-model="newImplications"></textarea>
+                    </dd>
+                    
+                    <button class="btn btn-primary ml-3" @click="add">add</button>
+                </dl>
+            </div>
         </div>
     </div>
 </template>

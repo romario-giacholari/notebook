@@ -1,61 +1,65 @@
 <template>
 <div>
-    <dl v-if="editing" class="row  journal-item p-2">
-        <dt class="col-sm-3">Event</dt>
-        <dd class="col-sm-9">
-            <input type="text" v-model="event">
-        </dd>
+    <div v-if="editing" class="journal-item p-2">
+        <dl  class="row">
+            <dt class="col-sm-3">Event</dt>
+            <dd class="col-sm-9">
+                <input type="text" v-model="event">
+            </dd>
 
-        <dt class="col-sm-3">What did I learn?</dt>
-        <dd class="col-sm-9">
-            <textarea v-model="learned"></textarea>
-        </dd>
+            <dt class="col-sm-3">What did I learn?</dt>
+            <dd class="col-sm-9">
+                <textarea v-model="learned"></textarea>
+            </dd>
 
-        <dt class="col-sm-3">What went well?</dt>
-        <dd class="col-sm-9">
-            <textarea v-model="well"></textarea>
-        </dd>
+            <dt class="col-sm-3">What went well?</dt>
+            <dd class="col-sm-9">
+                <textarea v-model="well"></textarea>
+            </dd>
 
-        <dt class="col-sm-3">What could I have done better?</dt>
-        <dd class="col-sm-9"> 
-            <textarea v-model="better"></textarea>
-        </dd>
+            <dt class="col-sm-3">What could I have done better?</dt>
+            <dd class="col-sm-9"> 
+                <textarea v-model="better"></textarea>
+            </dd>
 
-        <dt class="col-sm-3">Implications</dt>
-        <dd class="col-sm-9"> 
-            <textarea v-model="implications"></textarea>
-        </dd>
-        <button class="btn btn-primary mr-1" @click="update">update</button>
-        <button class="btn btn-light" @click="cancel">cancel</button>
-    </dl>
+            <dt class="col-sm-3">Implications</dt>
+            <dd class="col-sm-9"> 
+                <textarea v-model="implications"></textarea>
+            </dd>
+            <button class="btn btn-sm btn-primary ml-3" @click="update">update</button>
+            <button class="btn btn-sm btn-light ml-1" @click="cancel">cancel</button>
+        </dl>
+    </div>
 
-    <dl v-else class="row  journal-item p-2">
-        <dt class="col-sm-3">Event</dt>
-        <dd class="col-sm-9" v-text="event"></dd>
+    <div v-else class="journal-item p-2">
+        <dl class="row">
+            <dt class="col-sm-3">Event</dt>
+            <dd class="col-sm-9" v-text="event"></dd>
 
-        <dt class="col-sm-3">What did I learn?</dt>
-        <dd class="col-sm-9">
-            <p v-text="learned"></p>
-        </dd>
+            <dt class="col-sm-3">What did I learn?</dt>
+            <dd class="col-sm-9">
+                <p v-text="learned"></p>
+            </dd>
 
-        <dt class="col-sm-3">What went well?</dt>
-        <dd class="col-sm-9">
-            <p v-text="well"></p>
-        </dd>
+            <dt class="col-sm-3">What went well?</dt>
+            <dd class="col-sm-9">
+                <p v-text="well"></p>
+            </dd>
 
-        <dt class="col-sm-3">What could I have done better?</dt>
-        <dd class="col-sm-9"> 
-            <p v-text="better"></p>
-        </dd>
+            <dt class="col-sm-3">What could I have done better?</dt>
+            <dd class="col-sm-9"> 
+                <p v-text="better"></p>
+            </dd>
 
-        <dt class="col-sm-3">Implications</dt>
-        <dd class="col-sm-9"> 
-            <p v-text="implications"></p>
-        </dd>
+            <dt class="col-sm-3">Implications</dt>
+            <dd class="col-sm-9"> 
+                <p v-text="implications"></p>
+            </dd>
 
-        <button class="btn btn-secodary" @click="editing = true">edit</button>
-        <button class="btn btn-danger ml-1" @click="remove">delete</button>
-    </dl>
+            <button class="btn btn-sm btn-secodary ml-3" @click="editing = true">edit</button>
+            <button class="btn btn-sm btn-danger ml-1" @click="remove">delete</button>
+        </dl>
+    </div>
 
  </div>   
 </template>

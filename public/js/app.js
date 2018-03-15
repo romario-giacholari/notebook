@@ -47727,6 +47727,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47794,113 +47798,117 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mt-2" }, [
     _vm.editing
-      ? _c("dl", { staticClass: "row conversation-item p-2" }, [
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.topic,
-                  expression: "topic"
-                }
-              ],
-              attrs: { type: "text" },
-              domProps: { value: _vm.topic },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+      ? _c("div", { staticClass: "conversation-item p-2" }, [
+          _c("dl", { staticClass: "row" }, [
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.topic,
+                    expression: "topic"
                   }
-                  _vm.topic = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [
-            _vm._v("What did you talk about?")
-          ]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.body,
-                  expression: "body"
-                }
-              ],
-              domProps: { value: _vm.body },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.topic },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.topic = $event.target.value
                   }
-                  _vm.body = $event.target.value
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-sm mr-1",
-              on: { click: _vm.update }
-            },
-            [_vm._v("update")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary btn-sm",
-              on: { click: _vm.cancel }
-            },
-            [_vm._v("cancel")]
-          )
+              })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What did you talk about?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.body,
+                    expression: "body"
+                  }
+                ],
+                domProps: { value: _vm.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.body = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-sm ml-3",
+                on: { click: _vm.update }
+              },
+              [_vm._v("update")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary btn-sm ml-1",
+                on: { click: _vm.cancel }
+              },
+              [_vm._v("cancel")]
+            )
+          ])
         ])
-      : _c("dl", { staticClass: "row conversation-item p-2" }, [
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
-          _vm._v(" "),
-          _c("dd", {
-            staticClass: "col-sm-9",
-            domProps: { textContent: _vm._s(_vm.topic) }
-          }),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [
-            _vm._v("What did you talk about?")
-          ]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("p", { domProps: { textContent: _vm._s(_vm.body) } })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secodary btn-sm",
-              on: {
-                click: function($event) {
-                  _vm.editing = true
+      : _c("div", { staticClass: "conversation-item p-2" }, [
+          _c("dl", { staticClass: "row" }, [
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+            _vm._v(" "),
+            _c("dd", {
+              staticClass: "col-sm-9",
+              domProps: { textContent: _vm._s(_vm.topic) }
+            }),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What did you talk about?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("p", { domProps: { textContent: _vm._s(_vm.body) } })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secodary btn-sm ml-3",
+                on: {
+                  click: function($event) {
+                    _vm.editing = true
+                  }
                 }
-              }
-            },
-            [_vm._v("edit")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger btn-sm ml-1",
-              on: { click: _vm.remove }
-            },
-            [_vm._v("delete")]
-          )
+              },
+              [_vm._v("edit")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger btn-sm ml-1",
+                on: { click: _vm.remove }
+              },
+              [_vm._v("delete")]
+            )
+          ])
         ])
   ])
 }
@@ -48036,6 +48044,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48084,70 +48094,72 @@ var render = function() {
     _c("div", { staticClass: "col-md-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("dl", { staticClass: "row conversation-item p-2" }, [
-        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.newTopic,
-                  expression: "newTopic"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "topic" },
-              domProps: { value: _vm.newTopic },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+      _c("div", { staticClass: "conversation-item p-2" }, [
+        _c("dl", { staticClass: "row" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Topic")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.newTopic,
+                    expression: "newTopic"
                   }
-                  _vm.newTopic = $event.target.value
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("dt", { staticClass: "col-sm-3" }, [
-          _vm._v("What did you talk about?")
-        ]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.newBody,
-                  expression: "newBody"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { rows: "5", placeholder: "What did you talk about?" },
-              domProps: { value: _vm.newBody },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "topic" },
+                domProps: { value: _vm.newTopic },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.newTopic = $event.target.value
                   }
-                  _vm.newBody = $event.target.value
                 }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", on: { click: _vm.add } },
-          [_vm._v("Log")]
-        )
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What did you talk about?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.newBody,
+                    expression: "newBody"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { rows: "5", placeholder: "What did you talk about?" },
+                domProps: { value: _vm.newBody },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.newBody = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary ml-3", on: { click: _vm.add } },
+            [_vm._v("Log")]
+          )
+        ])
       ])
     ])
   ])
@@ -48810,6 +48822,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48886,194 +48902,211 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.editing
-      ? _c("dl", { staticClass: "row  journal-item p-2" }, [
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.event,
-                  expression: "event"
-                }
-              ],
-              attrs: { type: "text" },
-              domProps: { value: _vm.event },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+      ? _c("div", { staticClass: "journal-item p-2" }, [
+          _c("dl", { staticClass: "row" }, [
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.event,
+                    expression: "event"
                   }
-                  _vm.event = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.learned,
-                  expression: "learned"
-                }
-              ],
-              domProps: { value: _vm.learned },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.event },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.event = $event.target.value
                   }
-                  _vm.learned = $event.target.value
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.well,
-                  expression: "well"
-                }
-              ],
-              domProps: { value: _vm.well },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+              })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What did I learn?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.learned,
+                    expression: "learned"
                   }
-                  _vm.well = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [
-            _vm._v("What could I have done better?")
-          ]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.better,
-                  expression: "better"
-                }
-              ],
-              domProps: { value: _vm.better },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                domProps: { value: _vm.learned },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.learned = $event.target.value
                   }
-                  _vm.better = $event.target.value
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.implications,
-                  expression: "implications"
-                }
-              ],
-              domProps: { value: _vm.implications },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+              })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.well,
+                    expression: "well"
                   }
-                  _vm.implications = $event.target.value
+                ],
+                domProps: { value: _vm.well },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.well = $event.target.value
+                  }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-primary mr-1", on: { click: _vm.update } },
-            [_vm._v("update")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-light", on: { click: _vm.cancel } },
-            [_vm._v("cancel")]
-          )
+              })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What could I have done better?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.better,
+                    expression: "better"
+                  }
+                ],
+                domProps: { value: _vm.better },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.better = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.implications,
+                    expression: "implications"
+                  }
+                ],
+                domProps: { value: _vm.implications },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.implications = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-primary ml-3",
+                on: { click: _vm.update }
+              },
+              [_vm._v("update")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-light ml-1",
+                on: { click: _vm.cancel }
+              },
+              [_vm._v("cancel")]
+            )
+          ])
         ])
-      : _c("dl", { staticClass: "row  journal-item p-2" }, [
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
-          _vm._v(" "),
-          _c("dd", {
-            staticClass: "col-sm-9",
-            domProps: { textContent: _vm._s(_vm.event) }
-          }),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("p", { domProps: { textContent: _vm._s(_vm.learned) } })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("p", { domProps: { textContent: _vm._s(_vm.well) } })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [
-            _vm._v("What could I have done better?")
-          ]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("p", { domProps: { textContent: _vm._s(_vm.better) } })
-          ]),
-          _vm._v(" "),
-          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "col-sm-9" }, [
-            _c("p", { domProps: { textContent: _vm._s(_vm.implications) } })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secodary",
-              on: {
-                click: function($event) {
-                  _vm.editing = true
+      : _c("div", { staticClass: "journal-item p-2" }, [
+          _c("dl", { staticClass: "row" }, [
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
+            _vm._v(" "),
+            _c("dd", {
+              staticClass: "col-sm-9",
+              domProps: { textContent: _vm._s(_vm.event) }
+            }),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What did I learn?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("p", { domProps: { textContent: _vm._s(_vm.learned) } })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("p", { domProps: { textContent: _vm._s(_vm.well) } })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [
+              _vm._v("What could I have done better?")
+            ]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("p", { domProps: { textContent: _vm._s(_vm.better) } })
+            ]),
+            _vm._v(" "),
+            _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
+            _vm._v(" "),
+            _c("dd", { staticClass: "col-sm-9" }, [
+              _c("p", { domProps: { textContent: _vm._s(_vm.implications) } })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-secodary ml-3",
+                on: {
+                  click: function($event) {
+                    _vm.editing = true
+                  }
                 }
-              }
-            },
-            [_vm._v("edit")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-danger ml-1", on: { click: _vm.remove } },
-            [_vm._v("delete")]
-          )
+              },
+              [_vm._v("edit")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-danger ml-1",
+                on: { click: _vm.remove }
+              },
+              [_vm._v("delete")]
+            )
+          ])
         ])
   ])
 }
@@ -49220,6 +49253,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -49273,135 +49308,137 @@ var render = function() {
     _c("div", { staticClass: "col-md-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("dl", { staticClass: "row  journal-item p-2" }, [
-        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newEvent,
-                expression: "newEvent"
-              }
-            ],
-            attrs: { type: "text" },
-            domProps: { value: _vm.newEvent },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+      _c("div", { staticClass: "journal-item p-2 mb-3" }, [
+        _c("dl", { staticClass: "row" }, [
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Event")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newEvent,
+                  expression: "newEvent"
                 }
-                _vm.newEvent = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newLearned,
-                expression: "newLearned"
-              }
-            ],
-            domProps: { value: _vm.newLearned },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.newEvent },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newEvent = $event.target.value
                 }
-                _vm.newLearned = $event.target.value
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newWell,
-                expression: "newWell"
-              }
-            ],
-            domProps: { value: _vm.newWell },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What did I learn?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newLearned,
+                  expression: "newLearned"
                 }
-                _vm.newWell = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("dt", { staticClass: "col-sm-3" }, [
-          _vm._v("What could I have done better?")
-        ]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newBetter,
-                expression: "newBetter"
-              }
-            ],
-            domProps: { value: _vm.newBetter },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              ],
+              domProps: { value: _vm.newLearned },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newLearned = $event.target.value
                 }
-                _vm.newBetter = $event.target.value
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
-        _vm._v(" "),
-        _c("dd", { staticClass: "col-sm-9" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newImplications,
-                expression: "newImplications"
-              }
-            ],
-            domProps: { value: _vm.newImplications },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("What went well?")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newWell,
+                  expression: "newWell"
                 }
-                _vm.newImplications = $event.target.value
+              ],
+              domProps: { value: _vm.newWell },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newWell = $event.target.value
+                }
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", on: { click: _vm.add } },
-          [_vm._v("add")]
-        )
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [
+            _vm._v("What could I have done better?")
+          ]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newBetter,
+                  expression: "newBetter"
+                }
+              ],
+              domProps: { value: _vm.newBetter },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newBetter = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("dt", { staticClass: "col-sm-3" }, [_vm._v("Implications")]),
+          _vm._v(" "),
+          _c("dd", { staticClass: "col-sm-9" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newImplications,
+                  expression: "newImplications"
+                }
+              ],
+              domProps: { value: _vm.newImplications },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newImplications = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary ml-3", on: { click: _vm.add } },
+            [_vm._v("add")]
+          )
+        ])
       ])
     ])
   ])
@@ -49742,6 +49779,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.patch('/todos/' + this.id, { completed: true, body: this.body }).catch(function (error) {
+                console.log(error);
                 flash(error.response.data.errors.body[0], 'danger');
             }).then(function (_ref) {
                 var data = _ref.data;
