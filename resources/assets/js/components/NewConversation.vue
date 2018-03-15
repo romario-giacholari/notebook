@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-md-12">
             <h2><strong>Log conversation.</strong></h2>
-                <dl class="row conversation-item p-2">
+            <div class="conversation-item p-2">
+                <dl class="row">
                     <dt class="col-sm-3">Topic</dt>
                     <dd class="col-sm-9">
                         <div class="form-group">
@@ -17,8 +18,9 @@
                         </div>
                     </dd>
 
-                    <button class="btn btn-primary" @click="add">Log</button>
+                    <button class="btn btn-primary ml-3" @click="add">Log</button>
                 </dl>
+            </div>
         </div>
     </div>
 </template>
