@@ -36,7 +36,6 @@
                                 <a class="dropdown-item" href="/home">home</a>
                                 <a class="dropdown-item" href="{{ route('contacts.index') }}">contacts</a>
                                 <a class="dropdown-item" href="{{ route('todos.index') }}">todos</a>
-                                <a class="dropdown-item" href="#">documents</a>
                                 <a class="dropdown-item" href="{{ route('journals.index') }}">journal</a>
                             </div>
                          </li>
