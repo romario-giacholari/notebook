@@ -26,17 +26,6 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="#" class="action-link">
-                <div class="card text-white bg-dark mb-3 action-card">
-                    <div class="card-header">Documents</div>
-                    <div class="card-body">
-                        <h5 class="card-title">My documents</h5>
-                        <p class="card-text">Click to view all of your documents.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4">
             <a href="/journals" class="action-link">
                 <div class="card text-dark bg-light mb-3 action-card">
                     <div class="card-header">Journal</div>

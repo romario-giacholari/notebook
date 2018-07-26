@@ -53,7 +53,7 @@ class TodosTest extends TestCase
 
         $this->patch(route('todos.update', $todo), [
             'completed' => true,
-            'body' => 'finsi the todos'
+            'body' => 'finish the todos'
         ]);
 
         $this->assertTrue((bool) $todo->fresh()->completed);
