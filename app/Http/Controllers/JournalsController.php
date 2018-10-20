@@ -16,7 +16,7 @@ class JournalsController extends Controller
     {
         $journals = Journal::where('user_id', auth()->user()->id)->latest()->get();
 
-        if(request()->expectsJson()) {
+        if (request()->expectsJson()) {
             return $journals;
         }
 
@@ -25,7 +25,6 @@ class JournalsController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'event' => 'required',
             'learned' => 'required',
@@ -40,7 +39,7 @@ class JournalsController extends Controller
             'well' => $request->well,
             'better' => $request->better,
             'implications' => $request->implications
-            ]);
+        ]);
 
         return $journal;
     }
@@ -48,14 +47,14 @@ class JournalsController extends Controller
     public function update(Request $request, Journal $journal)
     {
         $this->authorize('update', $journal);
-        
+
         $journal->update([
             'event' => $request->event,
             'learned' => $request->learned,
             'well' => $request->well,
             'better' => $request->better,
             'implications' => $request->implications
-            ]);
+        ]);
 
         return $journal;
     }

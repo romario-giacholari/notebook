@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $todos = Todo::where([
-            ['user_id' ,auth()->user()->id],
+            ['user_id', auth()->user()->id],
             ['completed', false]
         ])->count();
 

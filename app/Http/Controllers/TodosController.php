@@ -21,13 +21,13 @@ class TodosController extends Controller
     public function index()
     {
         $todos = Todo::where([
-            
+
             ['user_id', auth()->user()->id],
             ['completed', false]
-            
+
         ])->latest()->get();
 
-        if(request()->expectsJson()) {
+        if (request()->expectsJson()) {
             return $todos;
         }
 
@@ -47,7 +47,7 @@ class TodosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -64,7 +64,7 @@ class TodosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Todo  $todo
+     * @param  \App\Todo $todo
      * @return \Illuminate\Http\Response
      */
     public function show(Todo $todo)
@@ -75,7 +75,7 @@ class TodosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Todo  $todo
+     * @param  \App\Todo $todo
      * @return \Illuminate\Http\Response
      */
     public function edit(Todo $todo)
@@ -86,28 +86,26 @@ class TodosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Todo  $todo
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Todo $todo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Todo $todo)
     {
-
         $this->authorize('update', $todo);
 
-        $this->validate($request ,[
+        $this->validate($request, [
             'completed' => 'required',
             'body' => 'required|max:100'
         ]);
 
-       $todo->update($request->all());
-
-}
+        $todo->update($request->all());
+    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Todo  $todo
+     * @param  \App\Todo $todo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Todo $todo)

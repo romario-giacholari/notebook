@@ -6,16 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    protected $fillable = [
-        'name',
-        'email',
-        'avatar',
-        'gender',
-        'phone_number'
-    ];
+    protected $fillable = ['name', 'email', 'avatar', 'gender', 'phone_number'];
 
     protected $appends = ['path'];
-    
+
     public function path()
     {
         return "/contacts/{$this->id}";

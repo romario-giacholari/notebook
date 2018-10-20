@@ -12,6 +12,7 @@
                 <div class="mr-auto font-weight-bold" v-text="body" @click="editing=true"></div>
                 <button class="btn btn-outline-success" @click="complete"><i class="fa fa-check" aria-hidden="true"></i></button>
                 <button class="btn btn-outline-danger ml-1" @click="remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn btn-outline-info ml-1" @click="editing = true"><i class="fa fa-edit" aria-hidden="true"></i></button>
             </li>
         </ul>
     </div>

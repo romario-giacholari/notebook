@@ -32,8 +32,8 @@ class ContactsController extends Controller
         ]);
 
         $contact = auth()->user()->saveContact($request->all());
-        
-        return redirect($contact->path())->with('flash','Saved!');
+
+        return redirect($contact->path())->with('flash', 'Saved!');
     }
 
     public function show(Contact $contact)
@@ -67,6 +67,6 @@ class ContactsController extends Controller
 
         $contact->delete();
 
-        return redirect(route('contacts.index'))->with('flash','Deleted!');
+        return redirect(route('contacts.index'))->with('flash', 'Deleted!');
     }
 }
