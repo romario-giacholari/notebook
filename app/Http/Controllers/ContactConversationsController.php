@@ -66,6 +66,7 @@ class ContactConversationsController extends Controller
      */
     public function destroy(Contact $contact, Conversation $conversation)
     {
+
         $conversation->delete();
     }
 }
